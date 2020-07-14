@@ -1,0 +1,30 @@
+CREATE TABLE subject (
+  subject_code TEXT NOT NULL UNIQUE,
+  campus_code TEXT NOT NULL
+);
+
+CREATE TABLE course (
+  course_code TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  subject_code TEXT NOT NULL,
+  faculty TEXT NOT NULL,
+  campus TEXT NOT NULL,
+  school TEXT NOT NULL,
+  career TEXT NOT NULL,
+  num_terms INTEGER NOT NULL,
+  UNIQUE(course_code, year)
+);
+
+CREATE TABLE classes (
+  class_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  course_code TEXT NOT NULL,
+  year integer NOT NULL,
+  activity TEXT NOT NULL,
+  period TEXT NOT NULL,
+  class_code TEXT NOT NULL,
+  status TEXT NOT NULL,
+  enrols INTEGER NOT NULL,
+  capacity INTEGER NOT NULL,
+  date_starttime TEXT NOT NULL,
+  UNIQUE(course_code, year, class_code)
+);
